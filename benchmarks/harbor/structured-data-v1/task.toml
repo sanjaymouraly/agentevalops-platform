@@ -1,0 +1,16 @@
+[metadata]
+name = "structured-data-v1"
+version = "1.0.0"
+difficulty = "medium"
+category = "data_engineering"
+tags = ["csv", "json", "validation"]
+
+[verifier]
+timeout_sec = 60.0
+
+[agent]
+timeout_sec = 60.0
+
+[environment]
+cpus = 1
+memory_mb = 512

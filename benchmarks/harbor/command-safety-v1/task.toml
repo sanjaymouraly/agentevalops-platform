@@ -1,0 +1,16 @@
+[metadata]
+name = "command-safety-v1"
+version = "1.0.0"
+difficulty = "medium"
+category = "security"
+tags = ["command-safety", "security", "tools"]
+
+[verifier]
+timeout_sec = 60.0
+
+[agent]
+timeout_sec = 60.0
+
+[environment]
+cpus = 1
+memory_mb = 512

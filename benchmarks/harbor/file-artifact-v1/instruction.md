@@ -1,0 +1,1 @@
+Files are in `inbox/`. Copy (do not move/delete originals) each file to `organized/<ext>/<filename>` where `<ext>` is the lowercase extension without a dot (files with no extension go to `organized/noext/`). Write `organized/manifest.json`: object mapping each original filename to `{"path": "organized/<ext>/<filename>", "sha256": hex, "size": bytes}`.

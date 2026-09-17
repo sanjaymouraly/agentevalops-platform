@@ -1,0 +1,15 @@
+{
+  "task_id": "repo-repair-v1",
+  "version": "1.0.0",
+  "name": "Repository Repair: Calculator Defects",
+  "description": "Diagnose and fix seeded defects in a small Python module so a hidden pytest suite passes.",
+  "difficulty": "easy",
+  "category": "software_engineering",
+  "tags": ["python", "debugging", "pytest"],
+  "timeout_sec": 60,
+  "verifier": "repo_repair",
+  "hidden_tests": "private/test_calc.py",
+  "tools": ["read_file", "write_file", "list_files"],
+  "allowed_commands": [],
+  "resource_limits": {"cpu": 1, "memory_mb": 512, "max_file_bytes": 1000000}
+}

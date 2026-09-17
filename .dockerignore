@@ -1,0 +1,1 @@
+.git node_modules frontend/dist artifacts *.db __pycache__ .env

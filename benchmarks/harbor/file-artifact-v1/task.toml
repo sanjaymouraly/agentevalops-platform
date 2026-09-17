@@ -1,0 +1,16 @@
+[metadata]
+name = "file-artifact-v1"
+version = "1.0.0"
+difficulty = "easy"
+category = "operations"
+tags = ["files", "hashing", "manifest"]
+
+[verifier]
+timeout_sec = 60.0
+
+[agent]
+timeout_sec = 60.0
+
+[environment]
+cpus = 1
+memory_mb = 512

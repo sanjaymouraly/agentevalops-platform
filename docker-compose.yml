@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: agentevalops, POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-agentevalops-dev}, POSTGRES_DB: agentevalops }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U agentevalops"], interval: 5s, timeout: 3s, retries: 10 }
+  api:
+    build: { context: ., dockerfile: Dockerfile }
+    environment:
+      AGENTEVALOPS_DATABASE_URL: postgresql+psycopg://agentevalops:${POSTGRES_PASSWORD:-agentevalops-dev}@db:5432/agentevalops
+      AGENTEVALOPS_ADMIN_KEY: ${AGENTEVALOPS_ADMIN_KEY:-dev-admin-key-change-me}
+    volumes: [artifacts:/app/artifacts]
+    ports: ["8000:8000"]
+    depends_on: { db: { condition: service_healthy } }
+    healthcheck: { test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"], interval: 10s, timeout: 5s, retries: 5 }
+  worker:
+    build: { context: ., dockerfile: Dockerfile }
+    command: ["python", "-m", "app.worker_runner", "--poll", "5"]
+    environment:
+      AGENTEVALOPS_DATABASE_URL: postgresql+psycopg://agentevalops:${POSTGRES_PASSWORD:-agentevalops-dev}@db:5432/agentevalops
+    volumes: [artifacts:/app/artifacts]
+    depends_on: { db: { condition: service_healthy }, api: { condition: service_started } }
+    profiles: ["queued"]
+  web:
+    build: { context: ./frontend, dockerfile: Dockerfile }
+    ports: ["5173:80"]
+    depends_on: [api]
+volumes: { pgdata: {}, artifacts: {} }

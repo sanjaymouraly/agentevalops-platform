@@ -1,0 +1,9 @@
+id,name,date,amount
+3,  alice   SMITH ,2024-01-05,"$1,200.50"
+1,bob jones,05/02/2024,250
+2,Carol White,Mar 3 2024,$99.9
+2,Carol Duplicate,Mar 3 2024,111
+4,,2024-04-01,10
+5,dave brown,not-a-date,10
+6,eve adams,2024-05-06,
+7, frank  miller ,15/06/2024,"$2,000"

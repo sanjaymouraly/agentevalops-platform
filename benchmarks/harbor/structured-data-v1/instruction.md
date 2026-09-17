@@ -1,0 +1,2 @@
+Read `input.csv`. Write `output.json`: a JSON array sorted by `id`, each item `{"id": int, "name": str, "date": "YYYY-MM-DD", "amount": float}`.
+Rules: trim names and collapse internal whitespace; title-case names; parse dates given as YYYY-MM-DD, DD/MM/YYYY, or "Mon D YYYY"; amount strips `$` and commas, rounded to 2dp; drop rows with missing/invalid id, date, or amount; de-duplicate by id keeping the first valid occurrence.
