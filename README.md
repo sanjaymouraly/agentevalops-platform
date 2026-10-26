@@ -1,5 +1,7 @@
 # AgentEvalOps — Continuous AI Agent Qualification Platform
 
+[![CI](https://github.com/sanjaymouraly/agentevalops-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/sanjaymouraly/agentevalops-platform/actions/workflows/ci.yml)
+
 A continuous qualification platform for evaluating AI agents across benchmarks and production signals.
 
 ## Features
